@@ -16,7 +16,10 @@
 
 ### Dateien hochladen
 - Status der Dateien (Files) testen mit: git status
-- fürs hochladen: git status und danach git add .gitignore Notizen.md
+- fürs hochladen: git add .gitignore Notizen.md
+- wenn alle hochgalden werden sollen: git add -A
+- danach die Dateien commiten: git commit -m "Kommentar"
+- am Schluss pushen mit (main kann auch anders sein, falls in eine andere Branch gepusht werden sollte): git push origin main
 - danach mit git status überprüfen
 
 ### Links einfügen
@@ -63,18 +66,26 @@ Lösung:
 - Die Wurzel aus 81 ist: 9.0
 
 ```python
-import time
-
-print ("Hello World")
+"Hello World, Hello World, Hello World, Hello World".replace("World", "People", 2)
 ```
 
-### Tipps und Tricks
+## Tag 2 - Dienstag
+
+### Notizen im Python
+- ctrl. + k + c = Formel/Text zu einem Kommentar machen
+- ctrl. + k + u = Kommentar wieder zu einer Formel/zu Python hinzufügen
+
+### Funktionen verstehen
+- Damit Funktionen/Formeln verstanden und richtig angewendet werden können, kann mit einem Hover über sie die Informationen/Anleitung angezeigt werden.
+
+### Funktionen erstellen
+- Funktionen werden mit "def" angezeigt. Sie bekommen auch einen Namen.
+- Funktionsbeispiel: def check_r():
+
+## Tipps und Tricks
 - Pfeil nach oben/unten werden die letzten codes angezeigt
 - Notizen in Python-Datei wird am Anfang der Zeile mit einem # gekennzeichnet
+- Hilfe für Codes: ctrl. + shift + p -> github Copilot: Toggle (Enable/Disable) inline suggestions
 
-### TODO
+## TODO
 - Link abschnitt verbessern
-
-## Wochenplan - Checkliste
-- [ ] Notizen täglich nachführen
-- [ ] Softwares herunterladen
