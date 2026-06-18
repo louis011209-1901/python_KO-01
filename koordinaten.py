@@ -1,32 +1,34 @@
-from pyproj import Transformer
+import requests
 import math
 
-transformer = Transformer.from_crs("EPSG:4326", "EPSG:2056", always_xy=True)
+e_wgs = 7.452
+n_wgs = 46.928
 
-print("=== Punkt 1 (WGS84) ===")
-lat1 = float(input("Breitengrad (lat): "))
-lon1 = float(input("Längengrad (lon): "))
+e_lv = 2600052
+n_lv = 1198762
 
-print("\n=== Punkt 2 (LV95) ===")
-E2 = float(input("Ostwert E (m): "))
-N2 = float(input("Nordwert N (m): "))
+service = "https://geodesy.geo.admin.ch/reframe/wgs84tolv95"
 
-E1, N1 = transformer.transform(lon1, lat1)
+parameter = {
+    "easting": e_wgs,
+    "northing": n_wgs,
+    "format": "json"
+}
 
-print("\n=== Transformierter Punkt 1 (LV95) ===")
-print(f"E1 = {E1:.2f} m")
-print(f"N1 = {N1:.2f} m")
+response = requests.get(url=service, params=parameter, verify=False)
+result = response.json()
 
-dE = E2 - E1
-dN = N2 - N1
+swisstopo_e = float(result["easting"])
+swisstopo_n = float(result["northing"])
 
-distance = math.sqrt(dE**2 + dN**2)
+print(f"swisstopo LV95: {swisstopo_e:.3f}, {swisstopo_n:.3f}")
 
-print("\n=== Ergebnis ===")
-print(f"ΔE = {dE:.2f} m")
-print(f"ΔN = {dN:.2f} m")
+dx = e_lv - swisstopo_e
+dy = n_lv - swisstopo_n
 
-print(f"Distanz = {distance:.2f} m")
-print(f"Distanz = {distance/1000:.3f} km")
+distanz = math.sqrt(dx**2 + dy**2)
 
-print(f"Gerundet (10 m): {round(distance / 10) * 10} m")
+distanz_10m = round(distanz / 10) * 10
+
+print(f"Distanz: {distanz:.2f} m")
+print(f"Gerundet auf 10 m: {distanz_10m:.0f} m")

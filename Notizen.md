@@ -84,7 +84,13 @@ Lösung:
 
 ## Tag 3 - Mittwoch
 
-### 
+### Zeit und Datum
+- Zeit rechnungen importieren / aktuelle Zeit anzeigen lassen(tuple):
+```python
+import time
+time.localtime()
+time.localtime().tm_year
+```
 
 ## Tipps und Tricks
 - Pfeil nach oben/unten werden die letzten codes angezeigt
