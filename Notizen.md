@@ -82,10 +82,18 @@ Lösung:
 - Funktionen werden mit "def" angezeigt. Sie bekommen auch einen Namen.
 - Funktionsbeispiel: def check_r():
 
+## Tag 3 - Mittwoch
+
+### 
+
 ## Tipps und Tricks
 - Pfeil nach oben/unten werden die letzten codes angezeigt
 - Notizen in Python-Datei wird am Anfang der Zeile mit einem # gekennzeichnet
 - Hilfe für Codes: ctrl. + shift + p -> github Copilot: Toggle (Enable/Disable) inline suggestions
+- wenn dateinamen/-pfade eingefügt werden und danach geprinted werden, muss ein r (steht für raw) hinzugefügt werden, sonst kann python das "\t" als Tab interpretieren:
+```python
+dateipfad = r'C:\Users\louis\OneDrive - sluz\Desktop'
+```
 
 ## TODO
 - Link abschnitt verbessern

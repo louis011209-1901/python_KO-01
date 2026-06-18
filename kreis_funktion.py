@@ -1,4 +1,5 @@
 import math
+
 def check_r():
     while True:
         try:
@@ -12,13 +13,15 @@ def check_r():
             print("Radius darf nicht negativ sein. Gib bitte einen positiven Wert ein.")
     print("Die While-Schleife ist fertig.")
     return r
-        
-
 def flaeche(r):
     return r**2 * math.pi
 
 def umfang(r):
     return 2 * math.pi * r
+
+def calc_diameter(r):
+    return 2 * r
+
 
 r = check_r()
 A = flaeche(r)
